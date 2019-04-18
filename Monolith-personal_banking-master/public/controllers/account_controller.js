@@ -21,11 +21,11 @@ $scope.newuser= {
 };
 
 
-$scope.init_accounts = function() {
-         $http.get('http://34.233.71.117:3000/accounts/?emailAddress='+$cookies.get('email')).success(function(response) {
-                var json = [];
-                var names = [];
-                var bal =[];
+$scope.init_accounts = function() { 
+	 $http.get('http://34.233.71.117:3000/accounts/?emailAddress='+$cookies.get('email')).success(function(response) {
+	 	var json = [];
+	 	var names = [];
+	 	var bal =[];
         angular.forEach(response, function(value, key){
                 json.push(value);
                 names.push(value.accountid);
@@ -38,9 +38,8 @@ $scope.init_accounts = function() {
 }
 
 
-$scope.init_accounts_details = function() {
-     $http.get('http://3.92.87.131:3000/details/?emailAddress='+$cookies.get('email')+"&accountid="+$location.search().accountid).success(function(r
-esponse) {
+$scope.init_accounts_details = function() { 
+     $http.get('http://3.92.87.131:3000/details/?emailAddress='+$cookies.get('email')+"&bankName="+$location.search().accountid).success(function(response) {
         var json = [];
         angular.forEach(response, function(value, key){
                 json.push(value);
@@ -51,7 +50,7 @@ $scope.showNoTransaction=true
 $scope.showTransaction = true
         }
         $scope.accounts_details = json;
-        $scope.accountid_selected = $location.search().accountid;
+        $scope.accountid__selected = $location.search().accountid;
     });
 }
 
@@ -66,7 +65,7 @@ $scope.register = function() {
 $http({
           method  : 'POST',
           url     : 'http://35.171.193.74:3000/users',
-          data    : $scope.newuser
+          data    : $scope.newuser 
          })
  .success(function(response) {
 $cookies.put("email",$scope.newuser.emailAddress)
@@ -108,7 +107,7 @@ if(response != null && angular.fromJson(response).password==password){
     $location.path("/welcome")
 }
 else {
-    $rootScope.isError=true
+    $rootScope.isError=true 
 }
 })
         };
@@ -117,7 +116,7 @@ else {
             return $rootScope.isError;
         }
 
-
+ 
         return service;
     }])
 

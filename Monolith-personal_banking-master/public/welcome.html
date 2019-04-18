@@ -4,7 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-resource.min.js"></script>
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-cookies.js"></script>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link> 
 </head>
 <body  ng-app="Personal-Banking">
 
@@ -13,10 +13,10 @@
 <div class="starter-template">
 <h1>
 Welcome Ambar Hassani
-</h1>
+</h1> 
 <p class="lead">
 Here, you can manage your all accounts
-</p>
+</p>  
 <div ng-repeat="account in accounts">
   <table class="table table-striped">
     <thead>
@@ -27,17 +27,17 @@ Here, you can manage your all accounts
     </thead>
     <tbody>
       <tr>
-        <td><a href="#/details/?accountid={{account.accountid}}">{{account.accountid}}</a></td>
+        <td><a href="#/details/?bank={{account.accountid}}">{{account.accountid}}</a></td>
         <td>{{account.balance}}</td>
       </tr>
     </tbody>
-  </table>
+  </table>  
 </div>
 <canvas id="pie" height="100" class="chart chart-pie"
   chart-data="acc_bal" chart-labels="acc_names" chart-options="options">
-</canvas>
+</canvas> 
 </div>
-</body>
+</body> 
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="controllers/account_controller.js"></script>
 <script src="js/Chart.js"></script>
