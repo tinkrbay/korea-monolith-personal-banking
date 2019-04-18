@@ -1,0 +1,108 @@
+<html>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-resource.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-cookies.js"></script>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<style type="text/css">
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:150px;
+  overflow:auto;
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+  color:black;
+}
+#table-wrapper table thead th .text {
+  position:absolute;
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+  border:1px solid black;
+}
+</style>
+</head>
+<body  ng-app="Personal-Banking">
+
+<div class="container" ng-controller="AccountController" ng-init="init_accounts_details()">
+<a href="/" ng-click="sign_out()">Sign out</a>
+<div class="starter-template">
+<h1>
+Welcome Ambar Hassani
+</h1>
+<p class="lead">
+Here, you can manage your all accounts
+</p>
+<h3>
+  {{accountid_selected}}
+  </h3>
+  <div class="row">
+        <div class="col-sm-8" ng-show="showTransaction">
+    <div id="table-wrapper">
+  <div id="table-scroll">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-xs-3">Account ID</th>
+        <th class="col-xs-3">Amount</th>
+        <th class="col-xs-3">Type</th>
+        <th class="col-xs-3">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="details in accounts_details">
+        <td class="col-xs-3">{{details.accountid}}</td>
+        <td class="col-xs-3">{{details.balance}}</td>
+        <td class="col-xs-3">{{details.type}}</td>
+        <td class="col-xs-3">{{details.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<div class="col-sm-8" ng-show="showNoTransaction">
+  <h3>
+    No Transaction found !
+  </h3>
+ </div>
+
+
+
+
+
+ <div class="col-sm-4">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Sort Code</td>
+        <td>78-78-99</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Customer-id</td>
+        <td>67563456</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="controllers/account_controller.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/angular-chart.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

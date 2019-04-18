@@ -1,0 +1,46 @@
+<html>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-resource.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-cookies.js"></script>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+</head>
+<body  ng-app="Personal-Banking">
+
+<div class="container" ng-controller="AccountController" ng-init="init_accounts()">
+<a href="/" ng-click="sign_out()">Sign out</a>
+<div class="starter-template">
+<h1>
+Welcome Ambar Hassani
+</h1>
+<p class="lead">
+Here, you can manage your all accounts
+</p>
+<div ng-repeat="account in accounts">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Account ID</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#/details/?accountid={{account.accountid}}">{{account.accountid}}</a></td>
+        <td>{{account.balance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<canvas id="pie" height="100" class="chart chart-pie"
+  chart-data="acc_bal" chart-labels="acc_names" chart-options="options">
+</canvas>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="controllers/account_controller.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/angular-chart.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
