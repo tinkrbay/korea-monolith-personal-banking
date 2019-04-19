@@ -7,12 +7,9 @@ module.exports = function(app) {
 app.route('/accounts')
 .post(controller.add_account);
 
-};
-
   app.route('/details/')
     .get(controller.list_details)
     .post(controller.add_details);
-};
 
   app.route('/users/')
     .get(controller.read_a_user);
