@@ -39,7 +39,7 @@ $scope.init_accounts = function() {
 
 
 $scope.init_accounts_details = function() { 
-     $http.get('http://3.92.87.131:3000/details/?emailAddress='+$cookies.get('email')+"&bankName="+$location.search().accountid).success(function(response) {
+     $http.get('http://3.92.87.131:3000/details/?emailAddress='+$cookies.get('email')+"&accountid="+$location.search().accountid).success(function(response) {
         var json = [];
         angular.forEach(response, function(value, key){
                 json.push(value);
@@ -50,7 +50,7 @@ $scope.showNoTransaction=true
 $scope.showTransaction = true
         }
         $scope.accounts_details = json;
-        $scope.accountid__selected = $location.search().accountid;
+        $scope.accountid_selected = $location.search().accountid;
     });
 }
 
